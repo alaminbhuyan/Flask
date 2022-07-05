@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+    <div class="container my-4">
+        <h2>Add Todo</h2>
+        <form action="/" method="POST">
+            <div class="mb-3">
+                <label for="todoTitle" class="form-label">Title</label>
+                <input type="text" class="form-control" name="title" id="todoTitle" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="todoDesc" class="form-label">Description</label>
+                <input type="text" class="form-control" name="desc" id="todoDesc">
+            </div>
+
+            <button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+    </div>
+    
+    <div class="container my-3">
+        <h2>Your Todo</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">SNO</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for todo in allTodo %}
+                    <tr>
+                        <th scope="row">{{loop.index}}</th>
+                        <td>{{todo.title}}</td>
+                        <td>{{todo.description}}</td>
+                        <td>{{todo.postTime}}</td>
+                        <td>
+                            <a href="/update" type="button" class="btn btn-outline-dark btn-sm mx-1">Update</a>
+                            <a href="/delete" type="button" class="btn btn-outline-dark btn-sm mx-1">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}

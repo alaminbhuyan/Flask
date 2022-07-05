@@ -1,0 +1,6 @@
+
+Go python terminal then:
+
+from main import db
+
+db.creat_all() # to create table
