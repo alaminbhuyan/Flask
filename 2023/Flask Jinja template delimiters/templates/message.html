@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Message page</title>
+</head>
+<body>
+<h2>Your information</h2><hr>
+    {% for key, value in information.items() %}
+        <h3>{{key}}: {{value}}</h3>
+    {% endfor %}
+</body>
+</html>
