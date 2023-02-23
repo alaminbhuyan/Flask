@@ -1,8 +1,8 @@
-from flask import Flask,render_template,Response
 import cv2
-
+from flask import Flask, render_template, Response
 
 app = Flask(__name__)
+
 
 read_camera = cv2.VideoCapture(0)
 
@@ -21,8 +21,8 @@ def home():
     return render_template(template_name_or_list="index.html")
 
 
-@app.route(rule="/video")
-def liveVideo():
+@app.route(rule="/start", methods=["POST"])
+def startVideo():
     return Response(response=generateFrame(), mimetype="multipart/x-mixed-replace; boundary=frame")
 
 
